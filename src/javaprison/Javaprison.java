@@ -5,7 +5,7 @@
  */
 package javaprison;
 
-/**
+/*
  *
  * @author Nehal Kalnad
  */
@@ -77,7 +77,7 @@ public class Police_PrisonDept {
         System.out.println("Welcome to Mumbai Police Prison Department");
         while(true){
             System.out.println("1.Add Prisoner 2.ChangeGuard 3.ChangePrisoners Service 4. Give Parole 5.Remove Prisoner 6.Exit");
-            
+            System.out.println("hi from karry");
             
             
         }
