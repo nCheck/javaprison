@@ -86,6 +86,8 @@ public class Police_PrisonDept {
             int yahoo;
             System.out.println("you knw nothing jon snow");
             System.out.println("i am the last lanisater");
+            System.out.println("Go BACK ASHLEY");
+            
         }
         
     }
