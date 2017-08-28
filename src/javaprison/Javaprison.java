@@ -84,6 +84,7 @@ public class Police_PrisonDept {
             int ash;
             int nehal;
             int yahoo;
+            System.out.println("you knw nothing jon snow");
             
         }
         
