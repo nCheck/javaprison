@@ -88,6 +88,7 @@ public class Police_PrisonDept {
             System.out.println("i am the last lanisater");
             System.out.println("Go BACK ASHLEY");
             int iamback;
+            int fuckccc;
         }
         
     }
