@@ -66,11 +66,13 @@ public class Police_PrisonDept {
             int section=sc.nextInt();
             while(true){
                 if(section==1){
-                    
+                    System.out.println("1.Add Prisoner 2.Remove Prisoner 3.Grant Parole 4.Display 5.Exit");
                 }
                 else if(section==2){
+                     System.out.println("1.Assign Guard 2.Display 3.Exit");
                     
                 }else if(section==3){
+                     System.out.println("1.Assign Prisoner Job 2.Check Jobs 3.Grant Parole 4.Exit");
                     
                 }
                 else
