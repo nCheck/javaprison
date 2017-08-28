@@ -81,15 +81,7 @@ public class Police_PrisonDept {
             System.out.println("1.Add Prisoner 2.ChangeGuard 3.ChangePrisoners Service 4. Give Parole 5.Remove Prisoner 6.Exit");
             System.out.println("hi from karry");
             System.out.println("changes hpppened");
-            int ash;
-            int nehal;
-            int yahoo;
-            System.out.println("you knw nothing jon snow");
-            System.out.println("i am the last lanisater");
-            System.out.println("Go BACK ASHLEY");
-            int iamback;
-            int fuckccc;
-            int nachhhhooooooo;
+           
         }
         
     }
