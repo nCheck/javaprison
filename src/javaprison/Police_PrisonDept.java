@@ -1,23 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package javaprison;
 
-/*
- *
- * @author Nehal Kalnad
- */
 
 import java.util.Scanner;
-
 
 /*class Police_Dept{
     /*
       add prisoner,change guard,
-  
-    
 }
 */
 class Prison{
@@ -26,17 +13,14 @@ class Prison{
       add prisoner,change guard,change prisoners service,give parole,remove 
     prioner
     */
-    
 }
 class Services{
     int l;
     int b;
-    
 }
 class Cells{
     // cell a for high level etc etc
     // cells have gaurds and prisoners
-    
 }
 class Person{
     // will contain for prisoners etc
@@ -78,10 +62,23 @@ public class Police_PrisonDept {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to Mumbai Police Prison Department");
         while(true){
-            System.out.println("1.Add Prisoner 2.ChangeGuard 3.ChangePrisoners Service 4. Give Parole 5.Remove Prisoner 6.Exit");
-            System.out.println("hi from karry");
-            System.out.println("changes hpppened");
-            int ash;
+            System.out.println("1.Prison Section 2.Guard Section 3.Services Section 4.Exit");//Three sections for 3 things so things dont become haazy
+            int section=sc.nextInt();
+            while(true){
+                if(section==1){
+                    
+                }
+                else if(section==2){
+                    
+                }else if(section==3){
+                    
+                }
+                else
+                    break;
+            }
+            
+            
+            
         }
         
     }
