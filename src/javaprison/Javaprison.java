@@ -83,7 +83,7 @@ public class Police_PrisonDept {
             System.out.println("changes hpppened");
             int ash;
             int nehal;
-            
+            int yahoo;
             
         }
         
