@@ -30,6 +30,7 @@ class Prison{
 }
 class Services{
     int l;
+    int b;
     
 }
 class Cells{
