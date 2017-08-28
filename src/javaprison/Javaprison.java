@@ -82,7 +82,7 @@ public class Police_PrisonDept {
             System.out.println("hi from karry");
             System.out.println("changes hpppened");
             int ash;
-                    
+            int nehal;
             
             
         }
