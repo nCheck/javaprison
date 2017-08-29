@@ -56,9 +56,7 @@ class Carpentry extends Services{
     
 }
 public class Police_PrisonDept {
-
-
-    public static void main(String[] args) {
+ public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to Mumbai Police Prison Department");
         while(true){
@@ -67,22 +65,49 @@ public class Police_PrisonDept {
             while(true){
                 if(section==1){
                     System.out.println("1.Add Prisoner 2.Remove Prisoner 3.Grant Parole 4.Display 5.Exit");
+                    int input=sc.nextInt();
+                    if(input==1){
+                }
+                    else if(input==2){
+                        
+                    }
+                    else if(input==3){
+                        
+                    }
+                    else if(input==4){
+                        
+                    }
+                    else 
+                        break;
                 }
                 else if(section==2){
                      System.out.println("1.Assign Guard 2.Display 3.Exit");
-                    
+                   int input=sc.nextInt();
+                    if(input==1){
+                }
+                    else if(input==2){
+                        
+                    }
+                    else 
+                        break; 
                 }else if(section==3){
-                     System.out.println("1.Assign Prisoner Job 2.Check Jobs 3.Grant Parole 4.Exit");
+                     System.out.println("1.Assign Prisoner Job 2.Check Jobs 3.Display 4.Exit");
+                     int input=sc.nextInt();
+                    if(input==1){
+                }
+                    else if(input==2){
+                        
+                    }
+                    else if(input==3){
+                        
+                    }
+                    else 
+                        break;
                     
                 }
                 else
                     break;
             }
-            
-            
-            
         }
-        
     }
-    
-}
+ }
