@@ -12,7 +12,7 @@ class Prison{
 // HAS A TYPE OF RELATIONSHIP POLICE CONTAINS PRISON
     /*
       add prisoner,change guard,change prisoners service,give parole,remove 
-    prioner
+    prioner  
     */
     int piD , giD;
     String type;
