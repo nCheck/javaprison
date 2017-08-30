@@ -25,6 +25,7 @@ class Prison{
     }
     void addPrisoner(Prisoner p)
     {
+        p.status="Active";
         p.job="None";
         p.uniqueiD = piD++;
         System.out.println("Sucefully Added with Unique ID number: " + p.uniqueiD);
@@ -39,7 +40,7 @@ class Prison{
     void displayPrisoner(){
         
         inmates.forEach((p) -> {
-            System.out.println("Name: "+p.name+" Age: "+p.age+" Gender: "+p.gender+" UniqueId: "+p.uniqueiD+" Job Assigned: "+p.job);
+            System.out.println("Name: "+p.name+" Age: "+p.age+" Gender: "+p.gender+" UniqueId: "+p.uniqueiD+" Job Assigned: "+p.job+" Status:"+p.status);
         });
     }
     void displayGuard(){
@@ -79,8 +80,17 @@ class Prison{
         else
             System.out.println("Wrong Index");
     }
-    
+    void parole(Prisoner p,int id){
+        Services s = null;
+        if(s.checkAssign(p)){
+            s.removeJob(s.assignment(p),id);
+            p.status="Parole";
+        }
+        else
+            p.status="Parole";
+        }
 }
+
 class Services{
     int earnings;
     int numberOfJobs;
@@ -111,23 +121,50 @@ class Services{
                 break;
         }
     }
+    boolean checkAssign(Prisoner p){
+        
+        return p.job.equals("None");
+    }
+    String assignment(Prisoner p){
+        return p.job;
+    }
+    void removeJob(String s,int id){
+        if(s.equals("Cooking")){
+            for (int i=0;i<Cooking.size();i++) {
+                if(Cooking.get(i).uniqueiD==id)
+                    Cooking.remove(i);
+            }
+        }
+        else if(s.equals("Construction")){
+             for (int i=0;i<Construction.size();i++) {
+                if(Construction.get(i).uniqueiD==id)
+                    Construction.remove(i);
+            }
+        }
+        else if(s.equals("Carpenter")){
+             for (int i=0;i<Carpentry.size();i++) {
+                if(Carpentry.get(i).uniqueiD==id)
+                    Carpentry.remove(i);
+            }
+        }
+    }
     void displayJobs(int ch)
     {
         switch(ch)
         {
             case 1:
                 Cooking.forEach((p) -> {
-                    System.out.println(p.name + " " + p.uniqueiD);
+                    System.out.println(p.name + " Id Number: " + p.uniqueiD);
         });
                 break;
             case 2:
                 Construction.forEach((p) -> {
-                    System.out.println(p.name + " " + p.uniqueiD);
+                    System.out.println(p.name + " Id Number: " + p.uniqueiD);
         });
                 break;
             case 3:
                 Carpentry.forEach((p) -> {
-                    System.out.println(p.name + " " + p.uniqueiD);
+                    System.out.println(p.name + " Id Number: " + p.uniqueiD);
         });
                 break;
         }
@@ -165,6 +202,7 @@ class Prisoner extends Person{
     // date of joining ,services assigned
     int uniqueiD;
     String job;
+    String status;
     public Prisoner(String name, int age, String gender)
     {
         super(name, age, gender);
@@ -285,7 +323,13 @@ public class Police_PrisonDept {
                                     femaleP.removePrisoner(idOut);
                             }
                             break;
-                        case 3:
+                        case 3:System.out.println("Enter Prisoner Unique ID");
+                            int id = sc.nextInt();
+                            if(id < 1500)
+                               temp = maleP.getPrisoner(id);
+                            else
+                                temp = femaleP.getPrisoner(id);
+                            
                             break;
                         case 4:
                             System.out.println("Male Prison");
