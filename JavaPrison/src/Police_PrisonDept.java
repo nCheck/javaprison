@@ -272,17 +272,18 @@ public class Police_PrisonDept {
         Prisoner[] p = new Prisoner[10]; //Our Jail can hold 10 Prisoners
         Guards[] g = new Guards[5]; //Only 5 Guards
         Services s = new Services();
-        int pC = 3 , gC = 0;
+        int pC = 5 , gC = 0;
         Prisoner temp;
         int tempC;
         Date defaul = new Date(12 , 11 , 1998);
-        p[0] = new Prisoner("Ashley" , 17 , "Female" , defaul);
+        p[0] = new Prisoner("Ashley" , 17 , "Male" , defaul);
         maleP.addPrisoner(p[0]);
         p[1] = new Prisoner("Nehal" , 18 , "Male" , defaul);
         femaleP.addPrisoner(p[1]);
         p[2] = new Prisoner("Karry" , 19 , "Male" , defaul);
         maleP.addPrisoner(p[2]);
-        
+        p[3] = new Prisoner("Sheena" , 28 , "Female" , defaul);
+        p[4] = new Prisoner("Maya" , 31 , "Female" , defaul);
         while(true){
             System.out.println("1.Prison Section 2.Guard Section 3.Services Section 4.Exit");//Three sections for 3 things so things dont become haazy
             int section=sc.nextInt();
