@@ -47,6 +47,22 @@ class Prison{
             System.out.println("Name: "+p.name+" Age: "+p.age+" Gender: "+p.gender+" Post: "+p.post+" Years of Experience:"+p.yearsOfExperience );
         }//
     }
+    Prisoner getPrisoner(int ID)
+    {
+           int get = -1;
+        for(Prisoner p : inmates)
+        {
+            if(p.uniqueiD == ID)
+            {
+                get = inmates.indexOf(p);
+                break;
+            }
+        }
+        if(get!=-1)
+             return inmates.get(get);
+        else
+            return null;
+    }
     void removePrisoner(int ID)
     {
         int rem = -1;
@@ -68,10 +84,54 @@ class Prison{
 class Services{
     int earnings;
     int numberOfJobs;
-    Services(int earnings,int numberOfJobs){
-    this.earnings=earnings;
-    this.numberOfJobs=numberOfJobs;
-}
+    ArrayList<Prisoner> Cooking;
+    ArrayList<Prisoner> Construction;
+    ArrayList<Prisoner> Carpentry;
+    Services()
+    {
+        Cooking =new ArrayList<>();
+        Construction =new ArrayList<>();
+        Carpentry =new ArrayList<>();
+    }
+    void giveJob(Prisoner p , int ch)
+    {
+        switch(ch)
+        {
+            case 1:
+                p.job = "Cook";
+                Cooking.add(p);
+                break;
+            case 2:
+                p.job = "Constructor";
+                Construction.add(p);
+                break;
+            case 3:
+                p.job = "Carpenter";
+                Carpentry.add(p);
+                break;
+        }
+    }
+    void displayJobs(int ch)
+    {
+        switch(ch)
+        {
+            case 1:
+                Cooking.forEach((p) -> {
+                    System.out.println(p.name + " " + p.uniqueiD);
+        });
+                break;
+            case 2:
+                Construction.forEach((p) -> {
+                    System.out.println(p.name + " " + p.uniqueiD);
+        });
+                break;
+            case 3:
+                Carpentry.forEach((p) -> {
+                    System.out.println(p.name + " " + p.uniqueiD);
+        });
+                break;
+        }
+    }
 }
 class Cells{
     // cell a for high level etc etc
@@ -141,34 +201,7 @@ class Guards extends Person{
         
     
 }
-class Cooking extends Services   
-{   
-    int numberOfJobs=4;
-    int earnings=300;
-    int id;
-    
-    Cooking(int id){
-        super(earnings,numberOfJobs); 
-    }
-}
-class Construction extends Services
-{
-    int numberOfJobs=3;
-    int earnings=350;
-    Construction(int id){
-        super(earnings,numberOfJobs);
-    }
-}
-class Carpentry extends Services
-{
-    int numberOfJobs=3;
-    int earnings=450;
-    int id;
-    Carpentry(int id){
-        super(earnings,numberOfJobs);
-        
-    }
-}
+
 class Date
 {
     int dd, mm , yy;
@@ -200,7 +233,10 @@ public class Police_PrisonDept {
         Prison guard =new Prison(11);//Guard
         Prisoner[] p = new Prisoner[10]; //Our Jail can hold 10 Prisoners
         Guards[] g = new Guards[5]; //Only 5 Guards
+        Services s = new Services();
         int pC = 3 , gC = 0;
+        Prisoner temp;
+        int tempC;
         Date defaul = new Date(12 , 11 , 1998);
         p[0] = new Prisoner("Ashley" , 17 , "Female" , defaul);
         femaleP.addPrisoner(p[0]);
@@ -287,15 +323,26 @@ public class Police_PrisonDept {
                         }
                     case 3:
                         {
-                            System.out.println("1.Assign Prisoner Job 2.Check Jobs 3.Display 4.Exit");
+                            System.out.println("1.Assign Prisoner Job 2.Display Workers 3.Exit");
                             int input=sc.nextInt();
                     switch (input)
                     {
                         case 1:
+                            System.out.println("Enter Prisoner Unique ID");
+                            int id = sc.nextInt();
+                            if(id < 1500)
+                               temp = maleP.getPrisoner(id);
+                            else
+                                temp = femaleP.getPrisoner(id);
+                            System.out.println("Select Job");
+                            System.out.println("1:Cooking 2:Construction 3:Carpentry");
+                            tempC = sc.nextInt();
+                            s.giveJob(temp,tempC);
                             break;
                         case 2:
-                            break;
-                        case 3:
+                            System.out.println("1:Cooking 2:Construction 3:Carpentry");
+                            tempC = sc.nextInt();
+                            s.displayJobs(tempC);
                             break;
                         default:
                             break OUTER;
