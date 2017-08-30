@@ -276,12 +276,12 @@ public class Police_PrisonDept {
         Prisoner temp;
         int tempC;
         Date defaul = new Date(12 , 11 , 1998);
-        p[0] = new Prisoner("Ashley" , 17 , "Female" , defaul);
-        femaleP.addPrisoner(p[0]);
-        p[1] = new Prisoner("Nehal" , 18 , "Male" , defaul);
-        maleP.addPrisoner(p[1]);
-        p[2] = new Prisoner("Karry" , 19 , "Female" , defaul);
-        femaleP.addPrisoner(p[2]);
+        p[0] = new Prisoner("Ashley" , 17 , "Male" , defaul);
+        maleP.addPrisoner(p[0]);
+        p[1] = new Prisoner("Nehal" , 18 , "Female" , defaul);
+        femaleP.addPrisoner(p[1]);
+        p[2] = new Prisoner("Karry" , 19 , "Male" , defaul);
+        maleP.addPrisoner(p[2]);
         
         while(true){
             System.out.println("1.Prison Section 2.Guard Section 3.Services Section 4.Exit");//Three sections for 3 things so things dont become haazy
