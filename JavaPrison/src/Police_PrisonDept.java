@@ -141,7 +141,7 @@ class Guards extends Person{
         
     
 }
-class Cooking extends Services
+class Cooking extends Services  
 {   
     int numberOfJobs=4;
     int earnings=300;
