@@ -28,6 +28,7 @@ class Prison{
     {
         p.job="None";
         p.uniqueiD = piD++;
+        System.out.println("Sucefully Added with Unique ID number: " + p.uniqueiD);
         inmates.add(p);
     }
     void addGuard(Guards g)
@@ -41,7 +42,25 @@ class Prison{
             System.out.println("Name: "+p.name+" Age: "+p.age+" Gender: "+p.gender+" UniqueId: "+p.uniqueiD+" Job Assigned: "+p.job);
         });
     }
-    
+    void removePrisoner(int ID)
+    {
+        int rem = -1;
+        for(Prisoner p : inmates)
+        {
+            if(p.uniqueiD == ID)
+            {
+                rem = inmates.indexOf(p);
+                break;
+            }
+        }
+        if(rem!=-1)
+        {
+            System.out.println("index of removal" + rem);
+            inmates.remove(rem);
+        }
+        else
+            System.out.println("Wrong Index");
+    }
     
 }
 class Services{
@@ -58,13 +77,21 @@ abstract class Person{
     String name;
     int age;
     String gender;
-   // Date birthday;
-    Person(String name,int age,String gender){     
+    Date birthday;
+    Person(String name,int age,String gender)
+    {     
     this.name=name;
     this.age=age;
     this.gender=gender;
-   // birthday = new Date();
-}
+    birthday = new Date();
+    }
+    Person(String name,int age,String gender , Date bday)
+    {     
+    this.name=name;
+    this.age=age;
+    this.gender=gender;
+    bday = birthday;
+    }
 }
 class Prisoner extends Person{
     // level of crime acc level to crime they will be assigned a cell
@@ -75,6 +102,11 @@ class Prisoner extends Person{
     public Prisoner(String name, int age, String gender)
     {
         super(name, age, gender);
+    }
+
+    Prisoner(String name, int age, String gender , Date defaul)
+    {
+        super(name, age, gender , defaul);
     }
     // level of crime acc level to crime they will be assigned a cell
     // crime date of relaease
@@ -145,10 +177,15 @@ public class Police_PrisonDept {
         Prison femaleP = new Prison(500 , "Female");        
         Prisoner[] p = new Prisoner[10]; //Our Jail can hold 10 Prisoners
         Guards[] g = new Guards[5]; //Only 5 Guards
-        int pC = 0 , gC = 0; 
+        int pC = 3 , gC = 0;
+        Date defaul = new Date(12 , 11 , 1998);
+        p[0] = new Prisoner("Ashley" , 17 , "Female" , defaul);
+        
         while(true){
             System.out.println("1.Prison Section 2.Guard Section 3.Services Section 4.Exit");//Three sections for 3 things so things dont become haazy
             int section=sc.nextInt();
+            if(section == 4)
+                break;
             OUTER:
             while (true) {
                 switch (section) {
@@ -171,11 +208,26 @@ public class Police_PrisonDept {
                             pC++;
                             break;
                         case 2:
+                            System.out.println("Male or Female?");
+                            String res = sc.next();
+                            System.out.println("Enter Prisoner Unique ID number");
+                            int idOut = sc.nextInt();
+                            switch(res)
+                            {
+                                case "Male":
+                                    maleP.removePrisoner(idOut);
+                                    break;
+                                default:
+                                    femaleP.removePrisoner(idOut);
+                            }
                             break;
                         case 3:
                             break;
                         case 4:
-                              maleP.display();
+                            System.out.println("Male Prison");
+                             maleP.display();
+                            System.out.println("Female Prison");
+                            femaleP.display();
                             break;
                         default:
                             break OUTER;
