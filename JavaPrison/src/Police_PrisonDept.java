@@ -1,5 +1,3 @@
-
-// Nehal can you hear me
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -26,6 +24,7 @@ class Prison{
     ArrayList<Guards> guards;
     void addPrisoner(Prisoner p)
     {
+        p.job="None";
         p.uniqueiD = piD++;
         inmates.add(p);
     }
@@ -34,6 +33,13 @@ class Prison{
         g.guardCode = giD++;
         guards.add(g);
     }
+    void display(){
+        
+        inmates.forEach((p) -> {
+            System.out.println("Name: "+p.name+" Age: "+p.age+" Gender: "+p.gender+" UniqueId: "+p.uniqueiD+" Job Assigned: "+p.job);
+        });
+    }
+    
     
 }
 class Services{
@@ -63,6 +69,7 @@ class Prisoner extends Person{
     // crime date of relaease
     // date of joining ,services assigned
     int uniqueiD;
+    String job;
     public Prisoner(String name, int age, String gender)
     {
         super(name, age, gender);
@@ -70,6 +77,9 @@ class Prisoner extends Person{
     // level of crime acc level to crime they will be assigned a cell
     // crime date of relaease
     // date of joining ,services assigned
+    String getDetails(){
+        return "Name: "+name+" Age: "+age+" Gender: "+gender+" UniqueId: "+uniqueiD+" Job Assigned: "+job;
+    }
 
 }
 class Guards extends Person{
@@ -152,12 +162,17 @@ public class Police_PrisonDept {
                             int age = sc.nextInt();
                             String gender = sc.next();
                             p[pC] = new Prisoner(name , age , gender);
+                            if(gender.equals("Male"))
+                                maleP.addPrisoner(p[pC++]);
+                             else
+                                femaleP.addPrisoner(p[pC++]);
                             break;
                         case 2:
                             break;
                         case 3:
                             break;
                         case 4:
+                              maleP.display();
                             break;
                         default:
                             break OUTER;
