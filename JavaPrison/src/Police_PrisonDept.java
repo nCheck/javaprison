@@ -14,14 +14,16 @@ class Prison{
     */
     int piD , giD;
     String type;
+    ArrayList<Prisoner> inmates;
+    ArrayList<Guards> guards;
     Prison(int code ,  String type)
     {
         piD = 1000 + code;
         giD = 100+ code;
         this.type = type;
+        guards = new ArrayList<>();
+        inmates = new ArrayList<>();
     }
-    ArrayList<Prisoner> inmates;
-    ArrayList<Guards> guards;
     void addPrisoner(Prisoner p)
     {
         p.job="None";
@@ -56,12 +58,12 @@ abstract class Person{
     String name;
     int age;
     String gender;
-    Date birthday;
+   // Date birthday;
     Person(String name,int age,String gender){     
     this.name=name;
     this.age=age;
     this.gender=gender;
-    birthday = new Date();
+   // birthday = new Date();
 }
 }
 class Prisoner extends Person{
@@ -163,9 +165,10 @@ public class Police_PrisonDept {
                             String gender = sc.next();
                             p[pC] = new Prisoner(name , age , gender);
                             if(gender.equals("Male"))
-                                maleP.addPrisoner(p[pC++]);
+                                maleP.addPrisoner(p[pC]);
                              else
-                                femaleP.addPrisoner(p[pC++]);
+                                femaleP.addPrisoner(p[pC]);
+                            pC++;
                             break;
                         case 2:
                             break;
