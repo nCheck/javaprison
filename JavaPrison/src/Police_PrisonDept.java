@@ -81,7 +81,7 @@ class Prison{
             System.out.println("Wrong Index");
     }
     void parole(Prisoner p,int id){
-        Services s = null;
+        Services s =new Services();
         if(s.checkAssign(p)){
             s.removeJob(s.assignment(p),id);
             p.status="Parole";
@@ -276,9 +276,9 @@ public class Police_PrisonDept {
         Prisoner temp;
         int tempC;
         Date defaul = new Date(12 , 11 , 1998);
-        p[0] = new Prisoner("Ashley" , 17 , "Male" , defaul);
+        p[0] = new Prisoner("Ashley" , 17 , "Female" , defaul);
         maleP.addPrisoner(p[0]);
-        p[1] = new Prisoner("Nehal" , 18 , "Female" , defaul);
+        p[1] = new Prisoner("Nehal" , 18 , "Male" , defaul);
         femaleP.addPrisoner(p[1]);
         p[2] = new Prisoner("Karry" , 19 , "Male" , defaul);
         maleP.addPrisoner(p[2]);
@@ -326,10 +326,15 @@ public class Police_PrisonDept {
                         case 3:System.out.println("Enter Prisoner Unique ID");
                             int id = sc.nextInt();
                             if(id < 1500)
-                               temp = maleP.getPrisoner(id);
+                            {
+                                 temp = maleP.getPrisoner(id);
+                                 maleP.parole(temp, id);
+                            }
                             else
-                                temp = femaleP.getPrisoner(id);
-                            
+                               {
+                                  temp = femaleP.getPrisoner(id);
+                                  femaleP.parole(temp, id);
+                               }
                             break;
                         case 4:
                             System.out.println("Male Prison");
