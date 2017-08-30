@@ -62,51 +62,60 @@ public class Police_PrisonDept {
         while(true){
             System.out.println("1.Prison Section 2.Guard Section 3.Services Section 4.Exit");//Three sections for 3 things so things dont become haazy
             int section=sc.nextInt();
-            while(true){
-                if(section==1){
-                    System.out.println("1.Add Prisoner 2.Remove Prisoner 3.Grant Parole 4.Display 5.Exit");
-                    int input=sc.nextInt();
-                    if(input==1){
+            OUTER:
+            while (true) {
+                switch (section) {
+                    case 1:
+                        {
+                            System.out.println("1.Add Prisoner 2.Remove Prisoner 3.Grant Parole 4.Display 5.Exit");
+                            int input=sc.nextInt();
+                    switch (input) {
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                        default:
+                            break OUTER;
+                    }
+                            break;
+                        }
+                    case 2:
+                        {
+                            System.out.println("1.Assign Guard 2.Display 3.Exit");
+                            int input=sc.nextInt();
+                    switch (input) {
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            break OUTER;
+                    }
+                            break;
+                        }
+                    case 3:
+                        {
+                            System.out.println("1.Assign Prisoner Job 2.Check Jobs 3.Display 4.Exit");
+                            int input=sc.nextInt();
+                    switch (input) {
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        default:
+                            break OUTER;
+                    }
+                            break;
+                        }
+                    default:
+                        break OUTER;
                 }
-                    else if(input==2){
-                        
-                    }
-                    else if(input==3){
-                        
-                    }
-                    else if(input==4){
-                        
-                    }
-                    else 
-                        break;
-                }
-                else if(section==2){
-                     System.out.println("1.Assign Guard 2.Display 3.Exit");
-                   int input=sc.nextInt();
-                    if(input==1){
-                }
-                    else if(input==2){
-                        
-                    }
-                    else 
-                        break; 
-                }else if(section==3){
-                     System.out.println("1.Assign Prisoner Job 2.Check Jobs 3.Display 4.Exit");
-                     int input=sc.nextInt();
-                    if(input==1){
-                }
-                    else if(input==2){
-                        
-                    }
-                    else if(input==3){
-                        
-                    }
-                    else 
-                        break;
-                    
-                }
-                else
-                    break;
             }
         }
     }
