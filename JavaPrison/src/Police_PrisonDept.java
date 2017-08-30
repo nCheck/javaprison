@@ -148,7 +148,7 @@ class Cooking extends Services
     int id;
     
     Cooking(int id){
-        super(earnings,numberOfJobs);
+        super(earnings,numberOfJobs); 
     }
 }
 class Construction extends Services
