@@ -16,11 +16,10 @@ class Prison{
     String type;
     ArrayList<Prisoner> inmates;
     ArrayList<Guards> guards;
-    Prison(int code ,  String type)
+    Prison(int code)
     {
         piD = 1000 + code;
         giD = 100+ code;
-        this.type = type;
         guards = new ArrayList<>();
         inmates = new ArrayList<>();
     }
@@ -34,13 +33,19 @@ class Prison{
     void addGuard(Guards g)
     {
         g.guardCode = giD++;
+        System.out.println("Sucefully Added with GuardCode number: " + g.guardCode);
         guards.add(g);
     }
-    void display(){
+    void displayPrisoner(){
         
         inmates.forEach((p) -> {
             System.out.println("Name: "+p.name+" Age: "+p.age+" Gender: "+p.gender+" UniqueId: "+p.uniqueiD+" Job Assigned: "+p.job);
         });
+    }
+    void displayGuard(){
+        for (Guards p : guards) {
+            System.out.println("Name: "+p.name+" Age: "+p.age+" Gender: "+p.gender+" Post: "+p.post+" Years of Experience:"+p.yearsOfExperience );
+        }//
     }
     void removePrisoner(int ID)
     {
@@ -61,8 +66,12 @@ class Prison{
     
 }
 class Services{
-    int l;
-    int b;
+    int earnings;
+    int numberOfJobs;
+    Services(int earnings,int numberOfJobs){
+    this.earnings=earnings;
+    this.numberOfJobs=numberOfJobs;
+}
 }
 class Cells{
     // cell a for high level etc etc
@@ -119,7 +128,7 @@ class Guards extends Person{
     String post;
     int yearsOfExperience;
     int guardCode;
-    Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in).useDelimiter("\\n");
     public Guards(String name, int age, String gender)
     {
         super(name, age, gender);
@@ -133,23 +142,39 @@ class Guards extends Person{
     
 }
 class Cooking extends Services
-{
+{   
+    int numberOfJobs=4;
+    int earnings=300;
+    int id;
     
+    Cooking(int id){
+        super(earnings,numberOfJobs);
+    }
 }
 class Construction extends Services
 {
-    
+    int numberOfJobs=3;
+    int earnings=350;
+    Construction(int id){
+        super(earnings,numberOfJobs);
+    }
 }
 class Carpentry extends Services
 {
-    
+    int numberOfJobs=3;
+    int earnings=450;
+    int id;
+    Carpentry(int id){
+        super(earnings,numberOfJobs);
+        
+    }
 }
 class Date
 {
     int dd, mm , yy;
     Date() //Default Constructors
     {
-        Scanner d = new Scanner(System.in);
+        Scanner d = new Scanner(System.in).useDelimiter("\\n");
         System.out.println("Enter day month year");
         dd = d.nextInt();
         mm = d.nextInt();
@@ -168,10 +193,11 @@ class Date
 }
 public class Police_PrisonDept {
  public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in).useDelimiter("\\n");
         System.out.println("Welcome to Mumbai Police Prison Department");
-        Prison maleP = new Prison(0 , "Male");
-        Prison femaleP = new Prison(500 , "Female");        
+        Prison maleP = new Prison(0 );//Male Prisoners
+        Prison femaleP = new Prison(500 ); //Female Prisoners      
+        Prison guard =new Prison(11);//Guard
         Prisoner[] p = new Prisoner[10]; //Our Jail can hold 10 Prisoners
         Guards[] g = new Guards[5]; //Only 5 Guards
         int pC = 3 , gC = 0;
@@ -181,7 +207,7 @@ public class Police_PrisonDept {
         p[1] = new Prisoner("Nehal" , 18 , "Male" , defaul);
         maleP.addPrisoner(p[1]);
         p[2] = new Prisoner("Karry" , 19 , "Female" , defaul);
-        maleP.addPrisoner(p[2]);
+        femaleP.addPrisoner(p[2]);
         
         while(true){
             System.out.println("1.Prison Section 2.Guard Section 3.Services Section 4.Exit");//Three sections for 3 things so things dont become haazy
@@ -227,9 +253,9 @@ public class Police_PrisonDept {
                             break;
                         case 4:
                             System.out.println("Male Prison");
-                             maleP.display();
+                             maleP.displayPrisoner();
                             System.out.println("Female Prison");
-                            femaleP.display();
+                            femaleP.displayPrisoner();
                             break;
                         default:
                             break OUTER;
@@ -238,7 +264,7 @@ public class Police_PrisonDept {
                         }
                     case 2:
                         {
-                            System.out.println("1.Assign Guard 2.Display 3.Exit");
+                            System.out.println("1.Add Guard 2.Display 3.Exit");
                             int input=sc.nextInt();
                     switch (input)
                     {
@@ -248,8 +274,11 @@ public class Police_PrisonDept {
                             int age = sc.nextInt();
                             String gender = sc.next();
                             g[gC] = new Guards(name , age , gender);
-                            break;
+                            guard.addGuard(g[gC]);
+                                    break;
                         case 2:
+                            System.out.println("Guards are");
+                             guard.displayGuard();
                             break;
                         default:
                             break OUTER;
