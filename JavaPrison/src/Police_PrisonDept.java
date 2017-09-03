@@ -12,7 +12,7 @@ class Prison{
       add prisoner,change guard,change prisoners service,give parole,remove 
     prioner
     */
-    int piD , giD;
+    static int piD , giD;
     String type;
     ArrayList<Prisoner> inmates;
     ArrayList<Guards> guards;
