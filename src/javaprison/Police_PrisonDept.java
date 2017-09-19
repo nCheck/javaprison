@@ -1,11 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/*class Police_Dept{
-    /*
-      add prisoner,change guard,
-}
-*/
+
 class Prison{
 // HAS A TYPE OF RELATIONSHIP POLICE CONTAINS PRISON
     /*
