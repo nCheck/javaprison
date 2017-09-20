@@ -68,7 +68,7 @@ public class Prison{
         else
             return null;
     }
-    void removePrisoner(int ID)
+    int removePrisoner(int ID)
     {
         int rem = -1;
         for(Prisoner p : inmates)
@@ -80,9 +80,12 @@ public class Prison{
             }
         }
         if(rem!=-1)
+        {
             inmates.remove(rem);
-        else
-            System.out.println("Wrong Index");
+            return 1;
+        }
+        else return 0;
+        
     }
     void parole(Prisoner p,int id){
         Services s =new Services();
