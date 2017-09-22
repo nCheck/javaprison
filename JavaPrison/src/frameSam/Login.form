@@ -44,9 +44,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jPasswordField1" max="32767" attributes="0"/>
+                      <Component id="iPassword" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField1" max="32767" attributes="0"/>
+                          <Component id="iUsername" max="32767" attributes="0"/>
                           <Component id="jLabel1" max="32767" attributes="0"/>
                           <Component id="jButton1" max="32767" attributes="0"/>
                       </Group>
@@ -61,9 +61,9 @@
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                  <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                  <Component id="iUsername" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jPasswordField1" min="-2" max="-2" attributes="0"/>
+                  <Component id="iPassword" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="38" max="32767" attributes="0"/>
                   <Component id="jButton1" min="-2" pref="61" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
@@ -88,15 +88,23 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="iUsername">
           <Properties>
             <Property name="text" type="java.lang.String" value="Username"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="iUsernameMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="iUsernameActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+        <Component class="javax.swing.JPasswordField" name="iPassword">
           <Properties>
             <Property name="text" type="java.lang.String" value="jPasswordField1"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="iPasswordMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="iPasswordActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

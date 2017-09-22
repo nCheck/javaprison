@@ -47,8 +47,8 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        iUsername = new javax.swing.JTextField();
+        iPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,9 +62,29 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setText("Username");
+        iUsername.setText("Username");
+        iUsername.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iUsernameMouseClicked(evt);
+            }
+        });
+        iUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iUsernameActionPerformed(evt);
+            }
+        });
 
-        jPasswordField1.setText("jPasswordField1");
+        iPassword.setText("jPasswordField1");
+        iPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iPasswordMouseClicked(evt);
+            }
+        });
+        iPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iPasswordActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -73,9 +93,9 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(134, 134, 134)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPasswordField1)
+                    .addComponent(iPassword)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField1)
+                        .addComponent(iUsername)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(145, Short.MAX_VALUE))
@@ -86,9 +106,9 @@ public class Login extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
                 .addGap(65, 65, 65)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(iUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(iPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
@@ -116,6 +136,24 @@ public class Login extends javax.swing.JFrame {
         this.setVisible(false);
         new HomeFrame().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void iUsernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iUsernameMouseClicked
+           // TODO add your handling code here:
+           iUsername.setText("");
+    }//GEN-LAST:event_iUsernameMouseClicked
+
+    private void iUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iUsernameActionPerformed
+
+    private void iPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iPasswordActionPerformed
+
+    private void iPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iPasswordMouseClicked
+        // TODO add your handling code here:
+        iPassword.setText("");
+    }//GEN-LAST:event_iPasswordMouseClicked
 
     /**
      * @param args the command line arguments
@@ -153,10 +191,10 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField iPassword;
+    private javax.swing.JTextField iUsername;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
