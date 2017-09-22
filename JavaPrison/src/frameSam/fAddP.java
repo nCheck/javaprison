@@ -8,6 +8,7 @@ package frameSam;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -23,30 +24,37 @@ public class fAddP extends javax.swing.JFrame {
         initComponents();
     }
     public void writee(String a,String b,String c,String d,String e,String f,String g)throws IOException{
+      
         FileReader in = null;
-      FileWriter out = null;
-      File file= new File(a+".txt");
-      try {
+        FileWriter out = null;
+        File file= new File(a+".txt");
+        try 
+        {
          
-         out = new FileWriter(file);
+            out = new FileWriter(file);
          
          
-         out.write(a+"\t");
-         out.write(b+"\t");
-         out.write(c+"\t");
-         out.write(d+"\t");
-         out.write(e+"\t");
+            out.write(a+"\t");
+            out.write(b+"\t");
+            out.write(c+"\t");
+            out.write(d+"\t");
+            out.write(e+"\t");
        
             
          
-      }finally {
-         if (in != null) {
-            in.close();
-         }
-         if (out != null) {
-            out.close();
-         }
+        }
+        finally 
+        {
+            if (in != null) 
+            {
+                in.close();
+            }
+            if (out != null) 
+            {
+                out.close();
+            }
       }
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,15 +73,12 @@ public class fAddP extends javax.swing.JFrame {
         inMale = new javax.swing.JRadioButton();
         inFemale = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         inDay = new javax.swing.JTextField();
         inMon = new javax.swing.JTextField();
         inYear = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         inCrime = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        outId = new javax.swing.JLabel();
-        outIdNo = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
@@ -97,8 +102,6 @@ public class fAddP extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Date");
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         inDay.setText("Day");
 
@@ -129,17 +132,6 @@ public class fAddP extends javax.swing.JFrame {
             }
         });
 
-        outId.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        outId.setText("ID Number");
-
-        outIdNo.setText("Number");
-        outIdNo.setFocusable(false);
-        outIdNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                outIdNoActionPerformed(evt);
-            }
-        });
-
         jButton2.setText("Clear");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,13 +155,6 @@ public class fAddP extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(68, 68, 68)
-                                .addComponent(jLabel4))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(38, 38, 38)
-                                .addComponent(inCrime, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -188,16 +173,18 @@ public class fAddP extends javax.swing.JFrame {
                                         .addComponent(inYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(inMon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(outId, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(outIdNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(46, 217, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
                                 .addComponent(inName, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                                .addComponent(jButton2))))
+                                .addComponent(jButton2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(38, 38, 38)
+                                .addComponent(inCrime, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(111, 111, 111)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,36 +204,27 @@ public class fAddP extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton2)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(inAge, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(inMale)
-                            .addComponent(inFemale)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(outId, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(inDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(inYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(inMon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(outIdNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inAge, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inMale)
+                    .addComponent(inFemale))
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(inDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inMon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(inCrime, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jButton3)
                 .addContainerGap())
         );
@@ -268,34 +246,49 @@ public class fAddP extends javax.swing.JFrame {
     }//GEN-LAST:event_outIdNoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String name = inName.getText();
+        
+        try
+        {
+            String name = inName.getText();
        
-        int age = Integer.parseInt(inAge.getText());
-        int d = Integer.parseInt(inDay.getText());
-        int m = Integer.parseInt(inMon.getText());
-        int y = Integer.parseInt(inYear.getText());
-        String gender;
-        if(inMale.isSelected() && !inFemale.isSelected())
-            gender = "Male";
-        else
-            gender = "Female";
+            int age = Integer.parseInt(inAge.getText());
+            int d = Integer.parseInt(inDay.getText());
+            int m = Integer.parseInt(inMon.getText());
+            int y = Integer.parseInt(inYear.getText());
+            String gender;
+            if(inMale.isSelected() && !inFemale.isSelected())
+                gender = "Male";
+            else
+                gender = "Female";
          
-        Date dd = new Date(d,m,y);
-        Login.p = new Prisoner(name , age , gender , dd);
-        Login.maleP.addPrisoner(Login.p);
-        outIdNo.setText(String.valueOf(Login.p.uniqueiD));
+            Date dd = new Date(d,m,y);
+            Login.p = new Prisoner(name , age , gender , dd);
+            Login.maleP.addPrisoner(Login.p);
+            //outIdNo.setText(String.valueOf(Login.p.uniqueiD));
        
-        try {
-            writee(inName.getText(),inAge.getText(),gender,Integer.toString(Login.p.uniqueiD),inDay.getText(),inMon.getText(),inYear.getText());
-        } catch (IOException ex) {
-            Logger.getLogger(fAddP.class.getName()).log(Level.SEVERE, null, ex);
+            try 
+            {
+                writee(inName.getText(),inAge.getText(),gender,Integer.toString(Login.p.uniqueiD),inDay.getText(),inMon.getText(),inYear.getText());
+            } 
+            catch (IOException ex) 
+            {
+                Logger.getLogger(fAddP.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            inName.setText("");
+            inAge.setText("");
+            inDay.setText("");
+            inMon.setText("");
+            inYear.setText("");
+            inCrime.setText("");
+            
+            JOptionPane.showMessageDialog(this,"ID NUMBER IS: "+Login.p.uniqueiD ,"Success",JOptionPane.INFORMATION_MESSAGE);
         }
-        inName.setText("");
-        inAge.setText("");
-        inDay.setText("");
-        inMon.setText("");
-        inYear.setText("");
-        inCrime.setText("");
+        catch(NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(this,"INVALID INPUT ","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -305,7 +298,7 @@ public class fAddP extends javax.swing.JFrame {
         inMon.setText("");
         inYear.setText("");
         inCrime.setText("");
-        outIdNo.setText("");
+        //outIdNo.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -364,9 +357,6 @@ public class fAddP extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel outId;
-    private javax.swing.JTextField outIdNo;
     // End of variables declaration//GEN-END:variables
 }
