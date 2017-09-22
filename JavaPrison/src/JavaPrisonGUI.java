@@ -1,5 +1,5 @@
-
-/**
+/*
+*//**
  *
  * @author Ashley Lobo
  */
@@ -15,6 +15,7 @@ class Prison{
     */
     static int piD , giD;
     String type;
+    String [] a;
     ArrayList<Prisoner> inmates;
     ArrayList<Guards> guards;
     Prison(int code)
@@ -38,11 +39,12 @@ class Prison{
         System.out.println("Sucefully Added with GuardCode number: " + g.guardCode);
         guards.add(g);
     }
-    void displayPrisoner(){
+   void displayPrisoner(){
         
-        inmates.forEach((p) -> {
-            System.out.println("Name: "+p.name+" Age: "+p.age+" Gender: "+p.gender+" UniqueId: "+p.uniqueiD+" Job Assigned: "+p.job+" Status:"+p.status);
-        });
+        for(int i=0;i<inmates.size();i++)
+            a[i]=("Name: "+inmates.get(i).name+" Age: "+inmates.get(i).age+" Gender: "+inmates.get(i).gender+" UniqueId: "+inmates.get(i).uniqueiD+" Job Assigned: "+inmates.get(i).job+" Status:"+inmates.get(i).status);
+        for(String w:a)
+            System.out.print(w);
     }
     void displayGuard(){
         for (Guards p : guards) {
@@ -281,9 +283,17 @@ public class JavaPrisonGUI extends javax.swing.JFrame {
         int tempC;
     public JavaPrisonGUI() {
         initComponents();
+        Date defaul = new Date(12 , 11 , 1998);
+        p[0] = new Prisoner("Ashley" , 17 , "Male" , defaul);
+        maleP.addPrisoner(p[0]);
+        p[1] = new Prisoner("Nehal" , 18 , "Male" , defaul);
+        femaleP.addPrisoner(p[1]);
+        p[2] = new Prisoner("Karry" , 19 , "Male" , defaul);
+        maleP.addPrisoner(p[2]);
+        p[3] = new Prisoner("Sheena" , 28 , "Female" , defaul);
+        p[4] = new Prisoner("Maya" , 31 , "Female" , defaul);
         prisonPanel.setVisible(false);
-       guardPanel.setVisible(false);
-       servicePanel.setVisible(false);
+       
         System.out.println("Welcome to Mumbai Police Prison Department");
     }
 
@@ -301,11 +311,10 @@ public class JavaPrisonGUI extends javax.swing.JFrame {
         guardSection = new javax.swing.JButton();
         serviceSection = new javax.swing.JButton();
         prisonPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        guardPanel = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        servicePanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        text1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        text = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -330,61 +339,46 @@ public class JavaPrisonGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("jLabel1");
+        text1.setText("text area");
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        text.setColumns(20);
+        text.setRows(5);
+        jScrollPane1.setViewportView(text);
 
         javax.swing.GroupLayout prisonPanelLayout = new javax.swing.GroupLayout(prisonPanel);
         prisonPanel.setLayout(prisonPanelLayout);
         prisonPanelLayout.setHorizontalGroup(
             prisonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(prisonPanelLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(jLabel1)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addGroup(prisonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(prisonPanelLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(text1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(prisonPanelLayout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addComponent(jButton1))
+                    .addGroup(prisonPanelLayout.createSequentialGroup()
+                        .addGap(193, 193, 193)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         prisonPanelLayout.setVerticalGroup(
             prisonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(prisonPanelLayout.createSequentialGroup()
-                .addGap(131, 131, 131)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(225, Short.MAX_VALUE))
-        );
-
-        jLabel3.setText("jLabel3");
-
-        javax.swing.GroupLayout guardPanelLayout = new javax.swing.GroupLayout(guardPanel);
-        guardPanel.setLayout(guardPanelLayout);
-        guardPanelLayout.setHorizontalGroup(
-            guardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(guardPanelLayout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
-        );
-        guardPanelLayout.setVerticalGroup(
-            guardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(guardPanelLayout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
-
-        jLabel2.setText("jLabel2");
-
-        javax.swing.GroupLayout servicePanelLayout = new javax.swing.GroupLayout(servicePanel);
-        servicePanel.setLayout(servicePanelLayout);
-        servicePanelLayout.setHorizontalGroup(
-            servicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, servicePanelLayout.createSequentialGroup()
-                .addContainerGap(137, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102))
-        );
-        servicePanelLayout.setVerticalGroup(
-            servicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(servicePanelLayout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addGap(121, 121, 121)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
+                .addComponent(text1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jButton1)
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout controlPanelLayout = new javax.swing.GroupLayout(controlPanel);
@@ -392,6 +386,7 @@ public class JavaPrisonGUI extends javax.swing.JFrame {
         controlPanelLayout.setHorizontalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(prisonSection, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(guardSection, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -401,10 +396,6 @@ public class JavaPrisonGUI extends javax.swing.JFrame {
             .addGroup(controlPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(prisonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(guardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120)
-                .addComponent(servicePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         controlPanelLayout.setVerticalGroup(
@@ -414,16 +405,8 @@ public class JavaPrisonGUI extends javax.swing.JFrame {
                     .addComponent(prisonSection)
                     .addComponent(guardSection)
                     .addComponent(serviceSection))
-                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(controlPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(prisonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(controlPanelLayout.createSequentialGroup()
-                        .addGap(228, 228, 228)
-                        .addComponent(servicePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(controlPanelLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(guardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(prisonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -446,24 +429,29 @@ public class JavaPrisonGUI extends javax.swing.JFrame {
 
     private void prisonSectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prisonSectionActionPerformed
     prisonPanel.setVisible(true);
-       guardPanel.setVisible(false);
-       servicePanel.setVisible(false);   
+        
        // TODO add your handling code here:
     }//GEN-LAST:event_prisonSectionActionPerformed
 
     private void guardSectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardSectionActionPerformed
         prisonPanel.setVisible(false);
-       guardPanel.setVisible(true);
-       servicePanel.setVisible(false);   
+       
                   // TODO add your handling code here:
     }//GEN-LAST:event_guardSectionActionPerformed
 
     private void serviceSectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceSectionActionPerformed
         prisonPanel.setVisible(false);
-       guardPanel.setVisible(false);
-       servicePanel.setVisible(true);   
+       
        
     }//GEN-LAST:event_serviceSectionActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    text1.setText("Male Prison");
+   
+    maleP.displayPrisoner();              
+    
+                                // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -502,14 +490,13 @@ public class JavaPrisonGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel controlPanel;
-    private javax.swing.JPanel guardPanel;
     private javax.swing.JButton guardSection;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel prisonPanel;
     private javax.swing.JButton prisonSection;
-    private javax.swing.JPanel servicePanel;
     private javax.swing.JButton serviceSection;
+    private javax.swing.JTextArea text;
+    private javax.swing.JLabel text1;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,10 @@
  */
 package frameSam;
 
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -18,7 +22,32 @@ public class fAddP extends javax.swing.JFrame {
     public fAddP() {
         initComponents();
     }
-
+    public void writee(String a,String b,String c,String d,String e,String f,String g)throws IOException{
+        FileReader in = null;
+      FileWriter out = null;
+      File file= new File(a+".txt");
+      try {
+         
+         out = new FileWriter(file);
+         
+         
+         out.write(a+"\t");
+         out.write(b+"\t");
+         out.write(c+"\t");
+         out.write(d+"\t");
+         out.write(e+"\t");
+       
+            
+         
+      }finally {
+         if (in != null) {
+            in.close();
+         }
+         if (out != null) {
+            out.close();
+         }
+      }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -240,6 +269,7 @@ public class fAddP extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String name = inName.getText();
+       
         int age = Integer.parseInt(inAge.getText());
         int d = Integer.parseInt(inDay.getText());
         int m = Integer.parseInt(inMon.getText());
@@ -249,10 +279,17 @@ public class fAddP extends javax.swing.JFrame {
             gender = "Male";
         else
             gender = "Female";
+         
         Date dd = new Date(d,m,y);
         Login.p = new Prisoner(name , age , gender , dd);
         Login.maleP.addPrisoner(Login.p);
         outIdNo.setText(String.valueOf(Login.p.uniqueiD));
+       
+        try {
+            writee(inName.getText(),inAge.getText(),gender,Integer.toString(Login.p.uniqueiD),inDay.getText(),inMon.getText(),inYear.getText());
+        } catch (IOException ex) {
+            Logger.getLogger(fAddP.class.getName()).log(Level.SEVERE, null, ex);
+        }
         inName.setText("");
         inAge.setText("");
         inDay.setText("");
