@@ -114,7 +114,7 @@ String service;
              ImageIcon img =  new ImageIcon("img1.jpg");
           Pic.setIcon(img);
       }
-      else if((Item.getName()).equals("Construction")){
+      else if((Item.isEnabled())){
           ImageIcon img =  new ImageIcon("img2.jpg");
           Pic.setIcon(img);
       }
@@ -126,15 +126,19 @@ String service;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        int num= Integer.parseInt(Text.getText());
-       if((Item.getName()).equals("Cooking")){
+       if((Item.getSelectedIndex())==0){
           service="Cooking";
+          Pic.setText("hello");
       }
-      else if((Item.getName()).equals("Construction")){
+      else if((Item.getSelectedItem()).equals("Construction")){
           service="Construction";
+          System.out.println("Hellobb");
       }
       else if((Item.getName()).equals("Carpentry")){
           service="Carpentry";
+           System.out.println("Hellobb");
       }
+       Item.get
        Prisoner p;
        p=Login.maleP.getPrisoner(num);
        p.job=service;
