@@ -250,9 +250,9 @@ public class fAddP extends javax.swing.JFrame {
         else
             gender = "Female";
         Date dd = new Date(d,m,y);
-        Login.p[0] = new Prisoner(name , age , gender , dd);
-        Login.maleP.addPrisoner(Login.p[0]);
-        outIdNo.setText(String.valueOf(Login.p[0].uniqueiD));
+        Login.p = new Prisoner(name , age , gender , dd);
+        Login.maleP.addPrisoner(Login.p);
+        outIdNo.setText(String.valueOf(Login.p.uniqueiD));
         inName.setText("");
         inAge.setText("");
         inDay.setText("");

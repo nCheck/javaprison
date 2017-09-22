@@ -16,6 +16,7 @@ public class fDisP extends javax.swing.JFrame {
      */
     public fDisP() {
         initComponents();
+        outPres.setText(Login.maleP.displayPrisoner());
     }
 
     /**
@@ -27,21 +28,54 @@ public class fDisP extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        backToPrs = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        outPres = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        backToPrs.setText("Back");
+        backToPrs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backToPrsActionPerformed(evt);
+            }
+        });
+
+        outPres.setColumns(20);
+        outPres.setRows(5);
+        outPres.setFocusable(false);
+        jScrollPane1.setViewportView(outPres);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 802, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(backToPrs))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                .addComponent(backToPrs))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backToPrsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToPrsActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new fPrisoner().setVisible(true);
+    }//GEN-LAST:event_backToPrsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +113,8 @@ public class fDisP extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backToPrs;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea outPres;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,18 +14,25 @@ public class Login extends javax.swing.JFrame {
     public static Prison maleP = new Prison(0 );//Male Prisoners
     public Prison femaleP = new Prison(500 ); //Female Prisoners      
     public Prison guard =new Prison(11);//Guard
-    public static Prisoner[] p = new Prisoner[10]; //Our Jail can hold 10 Prisoners
+    public static Prisoner p; //Our Jail can hold 10 Prisoners
     public Guards[] g = new Guards[5]; //Only 5 Guards
     public Services s = new Services();
     public int pC = 0 , gC = 0;
     public Prisoner temp;
     public int tempC;
-
+    
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+        Date dd = new Date(6,7 ,8);
+        p = new Prisoner("Nehal" , 19 , "Male" , dd);
+        maleP.addPrisoner(p);
+        p = new Prisoner("Kush" , 21 , "Male" , dd);
+        maleP.addPrisoner(p);
+        p = new Prisoner("Ashley" , 24 , "Male" , dd);
+        maleP.addPrisoner(p);
     }
 
     /**

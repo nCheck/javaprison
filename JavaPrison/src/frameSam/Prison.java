@@ -41,11 +41,13 @@ public class Prison{
         g.guardCode = giD++;
         guards.add(g);
     }
-    void displayPrisoner(){
-        
-        inmates.forEach((p) -> {
-            System.out.println("Name: "+p.name+" Age: "+p.age+" Gender: "+p.gender+" UniqueId: "+p.uniqueiD+" Job Assigned: "+p.job+" Status:"+p.status);
-        });
+    String displayPrisoner(){
+        String ans = "Name:\tAge:\tGender:\tUniqueId:\tJob Assigned:\tStatus:\n";
+        for(Prisoner p : inmates)
+        {
+            ans+=(p.name+"\t"+p.age+"\t"+p.gender+"\t"+p.uniqueiD+"\t"+p.job+"\t"+p.status+"\n");
+        }
+        return ans;
     }
     void displayGuard(){
         for (Guards p : guards) {
