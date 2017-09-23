@@ -21,7 +21,7 @@ abstract public class Person{
     this.name=name;
     this.age=age;
     this.gender=gender;
-    birthday = new Date();
+//    birthday = new Date();
     }
     Person(String name,int age,String gender , Date bday)
     {     
