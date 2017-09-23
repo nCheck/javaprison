@@ -14,14 +14,6 @@ import java.util.Scanner;
 public class Date
 {
     int dd, mm , yy;
-    Date() //Default Constructors
-    {
-        Scanner d = new Scanner(System.in).useDelimiter("\\n");
-        System.out.println("Enter day month year");
-        dd = d.nextInt();
-        mm = d.nextInt();
-        yy = d.nextInt();
-    }
     Date(int d , int m ,int y) //Parameterized Constructor
     {
         d = dd;

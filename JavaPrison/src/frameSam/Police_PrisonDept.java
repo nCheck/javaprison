@@ -20,7 +20,7 @@ public class Police_PrisonDept {
         Prison femaleP = new Prison(500 ); //Female Prisoners      
         Prison guard =new Prison(11);//Guard
         Prisoner[] p = new Prisoner[10]; //Our Jail can hold 10 Prisoners
-        Guards[] g = new Guards[5]; //Only 5 Guards
+        Guards g ; //Only 5 Guards
         Services s = new Services();
         int pC = 5 , gC = 0;
         Prisoner temp;
@@ -109,8 +109,10 @@ public class Police_PrisonDept {
                             String name = sc.next();
                             int age = sc.nextInt();
                             String gender = sc.next();
-                            g[gC] = new Guards(name , age , gender);
-                            guard.addGuard(g[gC]);
+                            int year=sc.nextInt();
+                            Date d = new Date(0 , 0 , 0);
+                            g = new Guards(name , age , gender , year , d);
+                            guard.addGuard(g);
                                     break;
                         case 2:
                             System.out.println("Guards are");

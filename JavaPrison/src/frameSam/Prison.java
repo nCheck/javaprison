@@ -5,7 +5,6 @@
  */
 package frameSam;
 
-import project.*;
 import java.util.ArrayList;
 
 /**
@@ -42,17 +41,20 @@ public class Prison{
         guards.add(g);
     }
     String displayPrisoner(){
-        String ans = "Name:\tAge:\tGender:\tUniqueId:\tJob Assigned:\tStatus:\n";
+        String ans = "Name\tAge\tGender\tUniqueId\tJob Assigned\tStatus\n";
         for(Prisoner p : inmates)
         {
             ans+=(p.name+"\t"+p.age+"\t"+p.gender+"\t"+p.uniqueiD+"\t"+p.job+"\t"+p.status+"\n");
         }
         return ans;
     }
-    void displayGuard(){
-        for (Guards p : guards) {
-            System.out.println("Name: "+p.name+" Age: "+p.age+" Gender: "+p.gender+" Post: "+p.post+" Years of Experience:"+p.yearsOfExperience );
-        }//
+    String displayGuard(){
+        String ans = "Name\tAge\tGender\tGuard Code\tYears of Experience\n";
+        for(Guards g : guards)
+        {
+            ans+=(g.name+"\t"+g.age+"\t"+g.gender+"\t"+g.guardCode+"\t"+g.year+"\n");
+        }
+        return ans;
     }
     Prisoner getPrisoner(int ID)
     {
@@ -84,6 +86,25 @@ public class Prison{
         if(rem!=-1)
         {
             inmates.remove(rem);
+            return 1;
+        }
+        else return 0;
+        
+    }
+    int removeGuard(int ID)
+    {
+        int rem = -1;
+        for(Guards g : guards)
+        {
+            if(g.guardCode == ID)
+            {
+                rem = guards.indexOf(g);
+                break;
+            }
+        }
+        if(rem!=-1)
+        {
+            guards.remove(rem);
             return 1;
         }
         else return 0;

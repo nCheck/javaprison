@@ -13,9 +13,9 @@ public class Login extends javax.swing.JFrame {
     
     public static Prison maleP = new Prison(0 );//Male Prisoners
     public Prison femaleP = new Prison(500 ); //Female Prisoners      
-    public Prison guard =new Prison(11);//Guard
+    public static Prison guard =new Prison(11);//Guard
     public static Prisoner p; //Our Jail can hold 10 Prisoners
-    public Guards g; //Only 5 Guards
+    public static Guards g; //Only 5 Guards
     public Services s = new Services();
     public int pC = 0 , gC = 0;
     public Prisoner temp;

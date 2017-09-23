@@ -18,13 +18,13 @@ public class Guards extends Person{
     String post;
     int yearsOfExperience;
     int guardCode;
+    int year;
     Scanner sc = new Scanner(System.in).useDelimiter("\\n");
-    public Guards(String name, int age, String gender)
+    public Guards(String name, int age, String gender , int year , Date bday)
     {
-        super(name, age, gender);
-        System.out.println("Enter Post & Current Experience");
-        post = sc.next();
-        yearsOfExperience = sc.nextInt();
+        super(name, age, gender , bday);
+        this.year = year;
+        
     }
     // level of posting
     // experience in years
