@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  * @author Nehal Kalnad
  */
 public class fAddP extends javax.swing.JFrame {
-String crime;
+String crime,desc;
 
     /**
      * Creates new form fAddP
@@ -242,24 +242,23 @@ String crime;
     private void outIdNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outIdNoActionPerformed
 
     }//GEN-LAST:event_outIdNoActionPerformed
-String des(){
-    Random randomGenerator = new Random();
+  
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+ Random randomGenerator = new Random();
      int no = randomGenerator.nextInt(3);
      int noo=randomGenerator.nextInt(12);
      if(no==0){
-        return "The Crime was commited at Wonderland Railway Staion. \n The Crime of "+crime+" being an repeated offence,the criminal was sentenced to "+noo+2+" Years of rigourous imprisonment.";
+        desc= "The Crime was commited at Wonderland Railway Staion. \n The Crime of "+crime+" being an repeated offence,the criminal was sentenced to "+noo+2+" Years of rigourous imprisonment.";
      }
      else if(no==1){
-          return "The Crime was commited at MaryLand Bus Stop. \n The Crime of "+crime+" being an first offence,the criminal was sentenced to "+noo+1+" Years of light imprisonment.";
+          desc= "The Crime was commited at MaryLand Bus Stop. \n The Crime of "+crime+" being an first offence,the criminal was sentenced to "+noo+1+" Years of light imprisonment.";
      }
      else
-         return "The Crime was commited at different locations and the criminal was on run. Chief Lobo got him arrested from MaryLand Square. \n The Crime of "+crime+" being an repeated offence and the criminal running away,the criminal was sentenced to "+noo+10+" Years of light imprisonment.";
-     
+         desc= "The Crime was commited at different locations and the criminal was on run. Chief Lobo got him arrested from MaryLand Square. \n The Crime of "+crime+" being an repeated offence and the criminal running away,the criminal was sentenced to "+noo+10+" Years of light imprisonment.";
          
- }  
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- if((Item.getSelectedIndex())==0){
+        
+              if  ((Item.getSelectedIndex())==0){
          crime="Robbery";
           
       }
@@ -295,7 +294,7 @@ String des(){
        
             try 
             {
-                writee(inName.getText(),inAge.getText(),gender,Integer.toString(Login.p.uniqueiD),inDay.getText(),inMon.getText(),inYear.getText(),crime,descrip);
+                writee(inName.getText(),inAge.getText(),gender,Integer.toString(Login.p.uniqueiD),inDay.getText(),inMon.getText(),inYear.getText(),crime,desc);
             } 
             catch (IOException ex) 
             {
@@ -317,7 +316,7 @@ String des(){
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
- String descrip=des();
+ 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         inName.setText("");
         inAge.setText("");
