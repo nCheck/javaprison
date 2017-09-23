@@ -249,13 +249,13 @@ String crime,desc;
      int no = randomGenerator.nextInt(3);
      int noo=randomGenerator.nextInt(12);
      if(no==0){
-        desc= "The Crime was commited at Wonderland Railway Staion. \n The Crime of "+crime+" being an repeated offence,the criminal was sentenced to "+noo+2+" Years of rigourous imprisonment.";
+        desc= "The Crime was commited at Wonderland Railway Staion. \n The Crime  being an repeated offence,the criminal was sentenced to "+noo+2+" Years of rigourous imprisonment.";
      }
      else if(no==1){
-          desc= "The Crime was commited at MaryLand Bus Stop. \n The Crime of "+crime+" being an first offence,the criminal was sentenced to "+noo+1+" Years of light imprisonment.";
+          desc= "The Crime was commited at MaryLand Bus Stop. \n The Crime  being an first offence,the criminal was sentenced to "+noo+1+" Years of light imprisonment.";
      }
      else
-         desc= "The Crime was commited at different locations and the criminal was on run. Chief Lobo got him arrested from MaryLand Square. \n The Crime of "+crime+" being an repeated offence and the criminal running away,the criminal was sentenced to "+noo+10+" Years of light imprisonment.";
+         desc= "The Crime was commited at different locations and the criminal was on run. Chief Lobo got him arrested from MaryLand Square. \n The Crime  being an repeated offence and the criminal running away,the criminal was sentenced to "+noo+10+" Years of light imprisonment.";
          
         
               if  ((Item.getSelectedIndex())==0){

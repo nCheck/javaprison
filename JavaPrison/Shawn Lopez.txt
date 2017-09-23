@@ -1,0 +1,8 @@
+Name:Shawn Lopez
+Age19
+Gender:Male
+Date: 23:2017:09
+Unique Id:1503
+Crime of Prisoner:Chain Snatching
+Description:The Crime was commited at different locations and the criminal was on run. Chief Lobo got him arrested from MaryLand Square. 
+ The Crime of null being an repeated offence and the criminal running away,the criminal was sentenced to 010 Years of light imprisonment.

@@ -16,6 +16,7 @@ public class fPrisoner extends javax.swing.JFrame {
      */
     public fPrisoner() {
         initComponents();
+        
     }
 
     /**
@@ -145,6 +146,8 @@ public class fPrisoner extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new fDisP().setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
