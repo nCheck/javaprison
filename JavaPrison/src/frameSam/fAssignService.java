@@ -74,17 +74,17 @@ String service;
                         .addGap(8, 8, 8)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(Item, 0, 0, Short.MAX_VALUE)
-                                .addComponent(Text, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)))
-                        .addGap(0, 78, Short.MAX_VALUE)))
-                .addGap(31, 31, 31)
-                .addComponent(Pic, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(Text)
+                                .addComponent(Item, 0, 135, Short.MAX_VALUE))
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 30, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(Pic, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Back)
+                .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -94,32 +94,34 @@ String service;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(39, 39, 39)
                         .addComponent(Text, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Item, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Pic, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(Back))
+                        .addGap(51, 51, 51)
+                        .addComponent(Item, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Pic, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemActionPerformed
         // TODO add your handling code here:
-         if((Item.isEnabled())){
+         if(Item.getSelectedIndex()==0){
              ImageIcon img =  new ImageIcon("img1.jpg");
           Pic.setIcon(img);
       }
-      else if((Item.isEnabled())){
+      else if(Item.getSelectedIndex()==1){
           ImageIcon img =  new ImageIcon("img2.jpg");
           Pic.setIcon(img);
       }
-      else if((Item.getName()).equals("Carpentry")){
-          service="Carpentry";
+      else if(Item.getSelectedIndex()==2){
+          ImageIcon img =  new ImageIcon("img3.jpg");
+          Pic.setIcon(img);
       }
      
     }//GEN-LAST:event_ItemActionPerformed
@@ -128,17 +130,17 @@ String service;
        int num= Integer.parseInt(Text.getText());
        if((Item.getSelectedIndex())==0){
           service="Cooking";
-          Pic.setText("hello");
+          
       }
-      else if((Item.getSelectedItem()).equals("Construction")){
+      else if(Item.getSelectedIndex()==1){
           service="Construction";
-          System.out.println("Hellobb");
+          
       }
-      else if((Item.getName()).equals("Carpentry")){
+      else if(Item.getSelectedIndex()==2){
           service="Carpentry";
-           System.out.println("Hellobb");
+           
       }
-       Item.get
+       
        Prisoner p;
        p=Login.maleP.getPrisoner(num);
        p.job=service;
