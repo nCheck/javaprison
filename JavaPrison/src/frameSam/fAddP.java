@@ -6,6 +6,7 @@
 package frameSam;
 
 import java.io.*;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -16,6 +17,7 @@ import javax.swing.JOptionPane;
  * @author Nehal Kalnad
  */
 public class fAddP extends javax.swing.JFrame {
+String crime,desc;
 
     /**
      * Creates new form fAddP
@@ -23,7 +25,7 @@ public class fAddP extends javax.swing.JFrame {
     public fAddP() {
         initComponents();
     }
-    public void writee(String a,String b,String c,String d,String e,String f,String g)throws IOException{
+    public void writee(String a,String b,String c,String d,String e,String f,String g,String crime,String l)throws IOException{
       
         FileReader in = null;
         FileWriter out = null;
@@ -34,13 +36,14 @@ public class fAddP extends javax.swing.JFrame {
             out = new FileWriter(file);
          
          
-            out.write(a+"\t");
-            out.write(b+"\t");
-            out.write(c+"\t");
-            out.write(d+"\t");
-            out.write(e+"\t");
-       
-            
+            out.write("Name:"+a+"\n");
+            out.write("Age"+b+"\n");
+            out.write("Gender:"+c+"\n");
+            out.write("Date: "+e+":"+f+":"+g+"\n");
+            out.write("Unique Id:"+d+"\n");
+           
+            out.write("Crime of Prisoner:"+crime+"\n");
+            out.write("Description:"+l+"\n");
          
         }
         finally 
@@ -77,10 +80,10 @@ public class fAddP extends javax.swing.JFrame {
         inMon = new javax.swing.JTextField();
         inYear = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        inCrime = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        Item = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -118,13 +121,6 @@ public class fAddP extends javax.swing.JFrame {
         jLabel5.setText("Crime");
         jLabel5.setFocusTraversalPolicyProvider(true);
 
-        inCrime.setText("         CRIME");
-        inCrime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inCrimeActionPerformed(evt);
-            }
-        });
-
         jButton1.setText("Done");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +141,9 @@ public class fAddP extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+
+        Item.setMaximumRowCount(4);
+        Item.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Robbery", "Assault", "Chain Snatching", "Cheating" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,14 +181,17 @@ public class fAddP extends javax.swing.JFrame {
                                 .addComponent(jButton2))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
-                                .addGap(38, 38, 38)
-                                .addComponent(inCrime, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(111, 111, 111)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Item, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -219,9 +221,9 @@ public class fAddP extends javax.swing.JFrame {
                     .addComponent(inYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(inMon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(inCrime, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Item, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(12, 12, 12)
@@ -237,16 +239,40 @@ public class fAddP extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inMonActionPerformed
 
-    private void inCrimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inCrimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inCrimeActionPerformed
-
     private void outIdNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outIdNoActionPerformed
 
     }//GEN-LAST:event_outIdNoActionPerformed
+  
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+ Random randomGenerator = new Random();
+     int no = randomGenerator.nextInt(3);
+     int noo=randomGenerator.nextInt(12);
+     if(no==0){
+        desc= "The Crime was commited at Wonderland Railway Staion. \n The Crime of "+crime+" being an repeated offence,the criminal was sentenced to "+noo+2+" Years of rigourous imprisonment.";
+     }
+     else if(no==1){
+          desc= "The Crime was commited at MaryLand Bus Stop. \n The Crime of "+crime+" being an first offence,the criminal was sentenced to "+noo+1+" Years of light imprisonment.";
+     }
+     else
+         desc= "The Crime was commited at different locations and the criminal was on run. Chief Lobo got him arrested from MaryLand Square. \n The Crime of "+crime+" being an repeated offence and the criminal running away,the criminal was sentenced to "+noo+10+" Years of light imprisonment.";
+         
         
+              if  ((Item.getSelectedIndex())==0){
+         crime="Robbery";
+          
+      }
+      else if(Item.getSelectedIndex()==1){
+       crime="Assault";
+          
+      }
+      else if(Item.getSelectedIndex()==2){
+          crime="Chain Snatching";
+           
+      }    
+      else if(Item.getSelectedIndex()==3){
+          crime="Cheating";
+      }
         try
         {
             String name = inName.getText();
@@ -268,7 +294,7 @@ public class fAddP extends javax.swing.JFrame {
        
             try 
             {
-                writee(inName.getText(),inAge.getText(),gender,Integer.toString(Login.p.uniqueiD),inDay.getText(),inMon.getText(),inYear.getText());
+                writee(inName.getText(),inAge.getText(),gender,Integer.toString(Login.p.uniqueiD),inDay.getText(),inMon.getText(),inYear.getText(),crime,desc);
             } 
             catch (IOException ex) 
             {
@@ -279,7 +305,7 @@ public class fAddP extends javax.swing.JFrame {
             inDay.setText("");
             inMon.setText("");
             inYear.setText("");
-            inCrime.setText("");
+            
             
             JOptionPane.showMessageDialog(this,"ID NUMBER IS: "+Login.p.uniqueiD ,"Success",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -290,14 +316,14 @@ public class fAddP extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
-
+ 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         inName.setText("");
         inAge.setText("");
         inDay.setText("");
         inMon.setText("");
         inYear.setText("");
-        inCrime.setText("");
+        
         //outIdNo.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -342,9 +368,9 @@ public class fAddP extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> Item;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField inAge;
-    private javax.swing.JTextField inCrime;
     private javax.swing.JTextField inDay;
     private javax.swing.JRadioButton inFemale;
     private javax.swing.JRadioButton inMale;
