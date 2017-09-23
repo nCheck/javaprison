@@ -29,7 +29,7 @@ public class Login extends javax.swing.JFrame {
         Date dd = new Date(6,7 ,8);
         p = new Prisoner("Nehal" , 19 , "Male" , dd);
         maleP.addPrisoner(p);
-        p = new Prisoner("Kush" , 21 , "Male" , dd);
+        p = new Prisoner("Kartick" , 21 , "Male" , dd);
         maleP.addPrisoner(p);
         p = new Prisoner("Ashley" , 24 , "Male" , dd);
         maleP.addPrisoner(p);

@@ -1,0 +1,8 @@
+Name:Sonali
+Age21
+Gender:Female
+Date: 05:1995:09
+Unique Id:1503
+Crime of Prisoner:Cheating
+Description:The Crime was commited at different locations and the criminal was on run. Chief Lobo got him arrested from MaryLand Square. 
+ The Crime  being an repeated offence and the criminal running away,the criminal was sentenced to 510 Years of light imprisonment.
