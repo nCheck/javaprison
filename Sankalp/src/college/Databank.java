@@ -5,10 +5,31 @@
  */
 package college;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Nehal Kalnad
  */
-public class Databank {
-    
+public class Databank
+{
+    ArrayList<Student> s;
+    Databank()
+    {
+        s = new ArrayList<>();
+    }
+    void AddStudent(Student stu)
+    {
+        s.add(stu);
+    }
+    String displayParticularCourseStudents(String course)
+    {
+        String ans = "";
+        for(int i = 0 ; i < s.size() ; i++)
+        {
+            if(s.get(i).course.equals(course))
+                ans+=s.get(i).name+"\n";
+        }
+        return ans;
+    }
 }

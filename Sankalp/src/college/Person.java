@@ -9,9 +9,8 @@ package college;
  *
  * @author Nehal Kalnad
  */
-abstract public class Person{
-    // will contain for prisoners etc
-    // name, age,gender
+abstract public class Person
+{
     String name;
     int age;
     String gender;
@@ -21,7 +20,6 @@ abstract public class Person{
     this.name=name;
     this.age=age;
     this.gender=gender;
-//    birthday = new Date();
     }
     Person(String name,int age,String gender , Date bday)
     {     
