@@ -32,4 +32,14 @@ public class Databank
         }
         return ans;
     }
+    String displayDefaulter()
+    {
+        String ans = "";
+        for(int i = 0 ; i < s.size() ; i++)
+        {
+            if(s.get(i).getAttendance() < 40)
+                ans+=s.get(i).name+"\n";
+        }
+        return ans;
+    }
 }
