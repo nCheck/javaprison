@@ -15,13 +15,11 @@ public class LoginPage extends javax.swing.JFrame {
      * Creates new form LoginPage
      */
     public static Student s;
-    public static Databank d;
+    public static Databank d = new Databank();
     public LoginPage() {
-        initComponents();
-        d = new Databank();
-        
+        initComponents(); 
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -98,6 +96,9 @@ public class LoginPage extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginPage().setVisible(true);
+                Date dd = new Date(7 , 6 , 2007);
+                s = new Student("Nehal" ,21 ,"Male" , dd , 7943);
+                d.AddStudent(s);
             }
         });
     }

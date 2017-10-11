@@ -22,6 +22,17 @@ public class Databank
     {
         s.add(stu);
     }
+    void addMarks(int ch , double m , int rollno)
+    {
+        for(int i = 0 ; i < s.size() ; i++)
+        {
+            if(s.get(i).rollNo == rollno)
+            {
+                s.get(i).addMarks(ch, m);
+                break;
+            }
+        }
+    }
     String displayParticularCourseStudents(String course)
     {
         String ans = "";
