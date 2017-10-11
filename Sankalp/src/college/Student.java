@@ -15,12 +15,13 @@ public class Student extends Person
     String course;
     SemMarks s;
     Attendance a;
-    public Student(String name, int age, String gender, Date bday , int rollNo)
+    public Student(String name, int age, String gender, Date bday , int rollNo,String course)
     {
         super(name, age, gender, bday);
         this.rollNo = rollNo;
         s = new SemMarks();
         a = new Attendance();
+        course=this.course;
     }
     void addCourse(String course)
     {
@@ -30,6 +31,9 @@ public class Student extends Person
     {
         s.setMarks(ch, m);
     }
+    int getRoll(){
+        return rollNo;
+    }
     double getMarks(int ch)
     {
         return s.getMarks(ch);
@@ -38,9 +42,14 @@ public class Student extends Person
     {
         return s.displayMarks();
     }
+    String displayCourse(){
+        return course;
+    }
     String dispStudentData()
     {
-        return name + "\t" + age + "\t" + rollNo + "\t" + course; 
+           String t;
+           t="NAME:"+name+"\t AGE:"+age+"\t GENDER:"+gender+"\t BIRTHDAY:"+birthday+"\t ROLL NUMBER:"+rollNo+"\t COURSE:"+course;
+        return t; 
     }
     void addAttendance(int t , int ad)
     {
