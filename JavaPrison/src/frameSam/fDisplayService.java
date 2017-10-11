@@ -36,6 +36,7 @@ public class fDisplayService extends javax.swing.JFrame {
 
         text.setColumns(20);
         text.setRows(5);
+        text.setFocusable(false);
         jScrollPane1.setViewportView(text);
 
         Back.setText("Back");

@@ -11,8 +11,7 @@ package frameSam;
  */
 public class Login extends javax.swing.JFrame {
     
-    public static Prison maleP = new Prison(0 );//Male Prisoners
-    public Prison femaleP = new Prison(500 ); //Female Prisoners      
+    public static Prison maleP = new Prison(0 );//Male Prisoners      
     public static Prison guard =new Prison(11);//Guard
     public static Prisoner p; //Our Jail can hold 10 Prisoners
     public static Guards g; //Only 5 Guards
@@ -26,13 +25,18 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        Date dd = new Date(6,7 ,8);
+        Date dd = new Date(6,7 ,1988);
         p = new Prisoner("Nehal" , 19 , "Male" , dd);
         maleP.addPrisoner(p);
         p = new Prisoner("Kartick" , 21 , "Male" , dd);
         maleP.addPrisoner(p);
         p = new Prisoner("Ashley" , 24 , "Male" , dd);
         maleP.addPrisoner(p);
+        dd = new Date(9,12,1972);
+        g = new Guards("Ram Singh" , 42 , "Male" , 9 , dd);
+        guard.addGuard(g);
+        g = new Guards("Lakhan" , 32 , "Male" , 5 , dd);
+        guard.addGuard(g);
     }
 
     /**

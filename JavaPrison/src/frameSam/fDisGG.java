@@ -56,8 +56,10 @@ public class fDisGG extends javax.swing.JFrame {
             }
         });
 
+        outPres.setEditable(false);
         outPres.setColumns(20);
         outPres.setRows(5);
+        outPres.setFocusable(false);
         jScrollPane1.setViewportView(outPres);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
