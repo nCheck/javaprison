@@ -1,0 +1,45 @@
+Report For Mini-Project
+Roll No: 7943/7944/7945
+Name: Nehal Vinod Kalnad / Kartick Hariharan /Ashley Lobo 
+SE Comps(Batch-B)
+
+Problem Statement:
+Write a GUI program for Inserting , Removing  & Displaying the record of the Prisoner & Guards  along with their Services . The Prisoner's entry will be as per the Crime commited by him . The Display should contain all the containts of the Prisoner . If the prisoner is released there should be record of that prisoner in the Data and For quick searching of prisoner/guards there should be seperate search area which displays their entire detail just by entering the Name.
+
+Class Description: 
+
+class Person:
+Person class is an abstract class which cannot be called in the main function of the Program. It has " Is a Relationship " with Guards and Prisoner . As Guards and Prisoner extends its function , it become's the parent class for both the class .
+class Prisoner:
+Prisoner class is a sub class extended from Person class showing Inheritance . Prisoner class takes the input from the user for the given prisoner and returns the details of that prisoner.
+class Guards:
+Guards class is a sub class extended from Person class showing Inheritance . Guards class takes the input from the user for the given Guard and returns the detail of that Guard.
+class Services:
+Services are the job assigned for the workers in side the jail. Every Prisoner has a service which show's  "Has a relationship " .The service is assigned according to the unique ID-number of the prisoner.
+class Date:
+Date class Accepts the date of entry of the Prisoner from the user and returns the date entered of that Prisoner.
+class PrisonPrerequisite:
+
+
+Jframe Classes:(GUI)
+
+class Login:
+Its the standard Login page where the user has to enter his LoginId and password to perform the function he requires to do. When the user is logged in , he gets a new window frame to perform the required operation .
+class HomeFrame:
+This class has 3 action which can be performed  i.e Add Prisoner , Add guards and Add Service's . Every choice as its respective frame . Apart from the 3 action buttons , the HomeFrame contains a Search button which give's us the complete detail of the Guard or Prisoner just by entering the name. Heance DynamicMethodDispatch or RunTime Polymorphism method is used here.
+class Prisoner:
+In prisoner Class we can add , remove or display the prisoner we have added in the data . This class is child class which extends the function of Person class which is an abstract class.
+class Addp / class RemP /class DisP:
+These three class are the action which can be performd with the prisoner i.e Adding,Removing,Displaying . In Addition the user has some restirction on giving the input. For integer variable's like Age and Date if the String/Char input is given then errror promt will occur showing "NumberFormatException". Hence Exceptional/Error handling is taken care. The remove class removes the details of the prisoner from the Data. The removal is taken place with entring the unique Id of the prisoner. The Display function is to display the entire data of the Prisoner.
+class Record:  
+This class is exception class which stores the record of every prisoner irresptive that prisoner is present or not . This class helps to keep the history of all the prisoner and the crime commited by him.
+class Guards:
+In guards Class we can add , remove or display the guards details we have added in the data . This class is child class which extends the function of Person class which is an abstract class.
+class Addg / class RemG /class DisG:
+These three class are the action which can be performd with the guards i.e Adding,Removing,Displaying . In Addition the user has some restirction on giving the input just like in the Addp class. For integer variable's like Age and Date if the String/Char input is given then errror promt will occur showing "NumberFormatException". Hence Exceptional/Error handling is taken care here. The remove class removes the details of the guards from the Data. The removal is taken place with entring the unique Id of the guard. The Display function is to display the entire data of the Guards.
+class Services:
+In prison the prisoners are alloted jobs of  "Carpentry , Cooking , Construction" . This show a "Has A relationship Between The Prisoner and the Services".The service class provides two function i.e to add the service and to display the details.
+class AssignService / class DisplayService:
+The service is assigned to the prisoner according to the unique Id-Number of that prisoner . There is a drop menu while assigning the service which contains "Carpentry , Cooking , Construction". As the choice is chosen a respective image is displayed showing the job taken by the prisoner. The Display Service displays the details of prisoner after the service is assigned to it.
+class SpecialDisp:
+This class is used to display details of Prisoner/Guards with input as name given at HomeFrame class. Here the details of both prisoner and guards can be searched by giving the input.
